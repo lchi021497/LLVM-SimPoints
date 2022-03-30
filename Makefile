@@ -2,7 +2,7 @@ CLANG = clang -emit-llvm #-mllvm -simplifycfg-dup-ret
 CXX = clang
 
 countfunc:
-	$(CLANG) -O3 -c -DINTERVAL=100000 -o count.bc count_bb/count.cpp
+	$(CLANG) -O3 -c -DINTERVAL=10000000 -o count.bc count_bb/count.cpp
 
 ex: example.cpp countfunc
 	@echo "Linking"
