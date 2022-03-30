@@ -2,13 +2,15 @@
 #include <cstdlib>
 
 //#define INTERVAL 10000000
-#define STARTSIZE 1024
+#define STARTSIZE 200000
 int var;
 void func() {};
 
 extern "C" {
 void countBlocks(unsigned long count, unsigned long inst)
 {
+	// printf("BB: %zu\n", count);
+	// printf("inst count: %zu\n", inst);
 	static unsigned long *counter_array = NULL;
 	static unsigned long inst_count = 0;
 	static size_t size = STARTSIZE;
@@ -48,7 +50,7 @@ void countBlocks(unsigned long count, unsigned long inst)
 	{
 		unsigned long i;
 		//out = fopen("count.bb", "a");
-	//	printf("FINAL LAST IS: %lu, SIZE IS %lu\n", last, size);
+		printf("FINAL LAST IS: %lu, SIZE IS %lu\n", last, size);
 		fprintf(out, "T");
 		for (i = 0; i <= last; i++)
 		{
@@ -67,7 +69,7 @@ void countBlocks(unsigned long count, unsigned long inst)
 	{
 		unsigned long i;
 		//out = fopen("count.bb", "a");
-	//	printf("LAST IS: %lu, SIZE IS %lu\n", last, size);
+		// printf("LAST IS: %lu, SIZE IS %lu\n", last, size);
 		fprintf(out, "T");
 		for (i = 0; i <= last; i++)
 		{
